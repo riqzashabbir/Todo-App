@@ -1,16 +1,16 @@
-import React from 'react';
-import DenseAppBar from './components/appBar';
-import Main from './components/todoList';
+import React from "react";
+import "./App.css";
+import Crud from "./components/Crud";
+import Header from "./components/Header";
 
 class App extends React.Component {					
 	
 	render(){
 		return (
-			<div>
-				<DenseAppBar />
-				<br />
-				<Main />
-			</div>
+			<div className="App">
+			<Header />
+			<Crud />
+		  </div>
 		);
 	}
 }
