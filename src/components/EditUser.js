@@ -16,7 +16,7 @@ const useStyles = makeStyles({
         marginLeft: '15px'
     },
     form: {
-        padding: '10px',
+        padding: '30px',
     },
     root: {
         '&:hover:not($disabled):not($error) $notchedOutline': {},
@@ -42,14 +42,12 @@ const EditUser = ({setEditing, currentUser, updateUser}) => {
         }
 
         const editUser = (event) => {
-            console.log('clicked');
             event.preventDefault()
             updateUser(user.id, user)
         }
       
         return (
-          <form
-            onSubmit={editUser}>
+          <form onSubmit={editUser} className={classes.form}>
               <TextField 
               name="name" 
               label="Name" 

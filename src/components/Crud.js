@@ -49,6 +49,7 @@ const Crud = () => {
 				<div className="flex-large">
 					{editing ? (
 						<>
+                        <h2>Edit Tasks</h2>
 							<EditUser
 								editing={editing}
 								setEditing={setEditing}
