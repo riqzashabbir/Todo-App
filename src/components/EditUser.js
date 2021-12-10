@@ -42,6 +42,7 @@ const EditUser = ({setEditing, currentUser, updateUser}) => {
         }
 
         const editUser = (event) => {
+          console.log('edit userclicked');
             event.preventDefault()
             updateUser(user.id, user)
         }

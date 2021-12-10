@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
-import { TextField,Button } from '@mui/material'
+import { TextField,Button,Box } from '@mui/material'
 import { makeStyles } from '@mui/styles'
+
 
 const useStyles = makeStyles({
     field: {
@@ -12,7 +13,7 @@ const useStyles = makeStyles({
     },
     addBtn:{
         marginTop: '10px',
-        marginLeft: '30px'
+        marginLeft: '30px',
     },
     root: {
         '&:hover:not($disabled):not($error) $notchedOutline': {},
@@ -22,10 +23,15 @@ const useStyles = makeStyles({
       },
       focused: {},
       notchedOutline: {},
+      'css-sghohy-MuiButtonBase-root-MuiButton-root': {
+        margin: '10px',
+      }
 })
 
 const CreateData = ({addUser}) => {
-    const initialFormState = { id: null, name: '', description: '' }
+  const classes = useStyles()
+
+  const initialFormState = {name: '', description: '' }
 	const [ user, setUser ] = useState(initialFormState)
 
 	const handleInputChange = event => {
@@ -35,17 +41,14 @@ const CreateData = ({addUser}) => {
 
     const onSubmit = (event) => {
         event.preventDefault()
-        console.log("clicked");
        if (!user.name || !user.description) return
-               addUser(user)
-               setUser(initialFormState)
+        addUser(user)
+        setUser(initialFormState)
     }
 
-    const classes = useStyles()
     return (
     <form onSubmit={onSubmit} className={classes.form}>
         <TextField
-          id="filled-error-helper-text"
           name="name"
           label="Name"
           onChange={handleInputChange}
@@ -61,7 +64,6 @@ const CreateData = ({addUser}) => {
         }}
         />  
         <TextField
-          id="filled-error-helper-text"
           name="description"
           label="Description"
           value={user.description}
@@ -75,7 +77,6 @@ const CreateData = ({addUser}) => {
               notchedOutline: classes.notchedOutline,
             },
         }}
-
         />
         <Button type="submit" variant="contained" className={classes.addBtn}>Add New Task</Button>
     </form>
